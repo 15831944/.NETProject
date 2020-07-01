@@ -75,9 +75,9 @@ namespace WebApplication.Models
 
 在Controller文件夹下，添加`新搭建基架的项目`，
 
-![1](images\1.png)
+![1](images/1.png)
 
-![2](images\2.png)
+![2](images/2.png)
 
 然后即可生成TodoController.cs文件，
 

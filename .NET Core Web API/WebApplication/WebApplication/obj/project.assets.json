@@ -8622,11 +8622,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Closer\\Desktop\\WebApplication\\WebApplication\\WebApplication.csproj",
+      "projectUniqueName": "E:\\VSProject\\.NET Core Web API\\WebApplication\\WebApplication\\WebApplication.csproj",
       "projectName": "WebApplication",
-      "projectPath": "C:\\Users\\Closer\\Desktop\\WebApplication\\WebApplication\\WebApplication.csproj",
+      "projectPath": "E:\\VSProject\\.NET Core Web API\\WebApplication\\WebApplication\\WebApplication.csproj",
       "packagesPath": "C:\\Users\\Closer\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Closer\\Desktop\\WebApplication\\WebApplication\\obj\\",
+      "outputPath": "E:\\VSProject\\.NET Core Web API\\WebApplication\\WebApplication\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Closer\\AppData\\Roaming\\NuGet\\NuGet.Config",

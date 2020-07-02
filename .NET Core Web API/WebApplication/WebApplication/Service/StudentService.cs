@@ -20,5 +20,7 @@ namespace WebApplication.Service
         bool UpdateNameByID(int id, string name);
 
         bool DeleteStudentByID(int id);
+
+        Task<ActionResult<IEnumerable<Student>>> GetStudentsByClassId(int id);
     }
 }

@@ -36,6 +36,11 @@ namespace WebApplication
                      Configuration.GetConnectionString("DefaultConnection")
                  )
             );
+            services.AddDbContext<ClassStudentContext>(opt =>
+                 opt.UseSqlServer(
+                     Configuration.GetConnectionString("DefaultConnection")
+                 )
+            );
             services.AddDbContext<StudentContext>(opt =>
                 opt.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")

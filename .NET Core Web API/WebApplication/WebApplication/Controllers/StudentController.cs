@@ -55,6 +55,18 @@ namespace WebApplication.Controllers
             return _studentService.GetStudents();
         }
 
+        [HttpGet]
+        [Route("get")]
+        public ActionResult<Student> GetOneById([FromQuery] int id)
+        {
+            return _studentService.GetStudentById(id);
+        }
 
+        [HttpGet]
+        [Route("class")]
+        public Task<ActionResult<IEnumerable<Student>>> GetByClass([FromQuery] int id)
+        {
+            return _studentService.GetStudentsByClassId(id);
+        }
     }
 }

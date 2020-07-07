@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,8 +11,8 @@ namespace WebApplication.Entity
     public class ClassStudent
     {
         [Column("class_id")]
-        public int class_id;
+        public int class_id { get; set; }
         [Column("student_id")]
-        public int student_id;
+        public int student_id { get; set; }
     }
 }

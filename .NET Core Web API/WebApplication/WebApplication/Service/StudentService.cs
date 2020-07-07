@@ -21,6 +21,6 @@ namespace WebApplication.Service
 
         bool DeleteStudentByID(int id);
 
-        Task<ActionResult<IEnumerable<Student>>> GetStudentsByClassId(int id);
+        List<Student> GetStudentsByClassId(int id);
     }
 }

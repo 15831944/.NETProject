@@ -8,13 +8,13 @@ using WebApplication.Entity;
 
 namespace WebApplication.DAO
 {
-    public class ClassStudentContext : StudentContext
+    public class ClassStudentContext : DbContext
     {
-        public ClassStudentContext(DbContextOptions<StudentContext> opt)
+        public ClassStudentContext(DbContextOptions<ClassStudentContext> opt)
              : base(opt)
         {
         }
-
+        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -22,7 +22,7 @@ namespace WebApplication.DAO
             entityTypeBuilder.ToTable("Class_Student");
             entityTypeBuilder.HasNoKey();
         }
-
+        
         public DbSet<ClassStudent> ClassStudents { get; set; }
     }
 }

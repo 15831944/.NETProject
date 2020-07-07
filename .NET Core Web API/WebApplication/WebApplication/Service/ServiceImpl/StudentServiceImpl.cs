@@ -15,9 +15,10 @@ namespace WebApplication.Service.ServiceImpl
 
         public StudentContext _context;
 
+       
         public ClassStudentContext _context1;
 
-        public StudentServiceImpl(StudentContext context, ClassStudentContext context1)
+        public StudentServiceImpl(ClassStudentContext context1, StudentContext context)
         {
             _context = context;
             _context1 = context1;
@@ -71,7 +72,7 @@ namespace WebApplication.Service.ServiceImpl
             return _context.SaveChanges() > 0;
         }
 
-        public async Task<ActionResult<IEnumerable<Student>>> GetStudentsByClassId(int id)
+        public List<Student> GetStudentsByClassId(int id)
         {
             /*
             TRUNCATE TABLE Class;
@@ -109,7 +110,7 @@ namespace WebApplication.Service.ServiceImpl
                         student_gender = table.student_gender
                     });
             */
-            var query2 = _context1.Students
+            /*var query2 = _context1.Students
                     .Join(
                         _context1.ClassStudents,
                         student => student.student_id,
@@ -119,14 +120,40 @@ namespace WebApplication.Service.ServiceImpl
                     .Where(table => table.C.class_id == id)
                     .Select(table => table.S);
 
-            /*
-            var query1 = from student in _context1.Students
-                         join classStudent in _context1.ClassStudents
-                            on student.student_id equals classStudent.student_id
+            */
+            Student[] A = new Student[] 
+            {
+                new Student { student_id = 1, student_gender = "0", student_name = "wushuai" },
+                new Student { student_id = 2, student_gender = "1", student_name = "nn" },
+            };
+            ClassStudent[] B = new ClassStudent[] 
+            { 
+                new ClassStudent { student_id = 1, class_id = 2 },
+                new ClassStudent { student_id = 2, class_id = 1 },
+            };
+            var test = from a in A
+                       join b in B
+                       on a.student_id equals b.student_id
+                       select new Student 
+                       { 
+                           student_id = a.student_id, 
+                           student_gender = a.student_gender, 
+                           student_name =a.student_name 
+                       };
+            var Student = _context.Students.ToList();
+            Console.WriteLine(_context1 == null);
+            Console.WriteLine(_context1.ClassStudents.Count());
+            Console.WriteLine(_context.Students.First().student_name);
+            var ClassStudent = _context1.ClassStudents.ToList();
+            
+            
+            var query1 = from student in Student
+                         join classStudent in ClassStudent
+                         on student.student_id equals classStudent.student_id
                          where classStudent.class_id == id
                          select student;
-            */
-            return await query2.ToListAsync();
+            
+            return query1.ToList();
         }
     }
 }

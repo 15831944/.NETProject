@@ -64,7 +64,7 @@ namespace WebApplication.Controllers
 
         [HttpGet]
         [Route("class")]
-        public Task<ActionResult<IEnumerable<Student>>> GetByClass([FromQuery] int id)
+        public List<Student> GetByClass([FromQuery] int id)
         {
             return _studentService.GetStudentsByClassId(id);
         }
